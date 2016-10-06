@@ -1,0 +1,11 @@
+{
+  "name": "wedding",
+  "version": "1.0.0",
+  "description": "frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "wes + travers",
+  "license": "MIT"
+}
