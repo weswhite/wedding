@@ -14,7 +14,7 @@ var config = {
   },
   devServer: {
     inline:true,
-    contentBase: './src',
+    contentBase: './src/app',
     port: 3005
   },
   module : {

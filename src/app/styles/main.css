@@ -4,4 +4,14 @@ html{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: helvetica arial sans-serif;
+}
+
+#container {
+	margin: 0 250px;
+	color: white;
+}
+
+label, input {
+	display: block;
 }
