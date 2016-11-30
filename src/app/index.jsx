@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 
 const submitRsvp = e => {
-	console.log()
+	console.log(this.state);
 }
 
 class Dashboard extends React.Component {
