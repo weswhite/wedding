@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 app.use(compression());
 app.use(express.static(__dirname + '/src/app/'));
 
-// app.get('/', function(req, res){
-// 	res.sendFile(path.join(__dirname + '/index.html'));
-// })
+app.get('/', function(req, res){
+	res.sendFile(path.join(__dirname + '/index.html'));
+})
 
 // var port = process.env.PORT || 8080;
 app.listen(app.get('port'), function() {
