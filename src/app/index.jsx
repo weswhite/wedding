@@ -37,7 +37,7 @@ class RsvpForm extends React.Component{
 	handleSubmit(e) {
 		e.preventDefault();
 		console.log("Name: " + this.state.name, "Num attending: " + this.state.num);
-		alert('Hey not so fast. Come back in a day or too cause Wes is not as fast as you are. He still has to finish writing a little bit of code before Wes and Avery can know if you are coming to their awesome wedding! (Sorry) 8)')
+		alert('Hey not so fast. Come back in a day or two cause Wes is not as fast as you are. He still has to finish writing a little bit of code before Wes and Avery can know if you are coming to their awesome wedding! If you are really bored or have more money than you know what to do with, here is a link to our registry. https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113')
 	}
 
 	render() {
