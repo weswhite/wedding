@@ -46,6 +46,11 @@ class RsvpForm extends React.Component{
 				<form>
 					<label>Name:</label>
 					<input type="text" onChange={this.handleChangeName}/><br></br>
+					<label>Will you be able to attend?</label>
+					<select>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select><br></br>
 					<label>Number of guests attending:</label>
 					<input type="text" onChange={this.handleChangeNum}/><br></br>
 					<button onClick={this.handleSubmit}>Submit</button>
@@ -57,5 +62,5 @@ class RsvpForm extends React.Component{
 
 render(
 	<Dashboard />,
-	document.getElementById('container')
+	document.getElementById('app')
 );

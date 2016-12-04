@@ -8,10 +8,20 @@ html{
 }
 
 #container {
-	margin: 0 250px;
 	color: white;
+  width: 100%;
+  text-align: center;
 }
+#content-area{
+  display: table;
+  margin: 0 auto;
+}
+label, input, select, button {
+	display: inline;
+  margin: 10px 0 10px 10px;
+  font-size: 24px;
 
-label, input {
-	display: block;
+}
+h1{
+  font-size: 52px;
 }
