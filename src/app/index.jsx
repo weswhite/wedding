@@ -9,7 +9,7 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div id='dashboard'>
-				<h1>Avery + Wes Wedding</h1>
+				<h1>The White Wedding</h1>
 				<RsvpForm />
 			</div>
 		);
@@ -53,7 +53,8 @@ class RsvpForm extends React.Component{
 					</select><br></br>
 					<label>Number of guests attending:</label>
 					<input type="text" onChange={this.handleChangeNum}/><br></br>
-					<button onClick={this.handleSubmit}>Submit</button>
+					<button className="button-primary" onClick={this.handleSubmit}>Submit</button>
+					<button className="button"><a href="https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113" target="_blank">View Registry</a></button>
 				</form>
 			</div>
 		);
