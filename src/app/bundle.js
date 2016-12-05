@@ -91,7 +91,7 @@
 					_react2.default.createElement(
 						'h1',
 						null,
-						'Avery + Wes Wedding'
+						'The White Wedding'
 					),
 					_react2.default.createElement(RsvpForm, null)
 				);
@@ -134,7 +134,7 @@
 			value: function handleSubmit(e) {
 				e.preventDefault();
 				console.log("Name: " + this.state.name, "Num attending: " + this.state.num);
-				alert('Hey not so fast. Come back in a day or too cause Wes is not as fast as you are. He still has to finish writing a little bit of code before Wes and Avery can know if you are coming to their awesome wedding! (Sorry) 8)');
+				alert('Hey not so fast. Come back in a day or two cause Wes is not as fast as you are. He still has to finish writing a little bit of code before Wes and Avery can know if you are coming to their awesome wedding! If you are really bored or have more money than you know what to do with, here is a link to our registry. https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113');
 			}
 		}, {
 			key: 'render',
@@ -155,14 +155,43 @@
 						_react2.default.createElement(
 							'label',
 							null,
+							'Will you be able to attend?'
+						),
+						_react2.default.createElement(
+							'select',
+							null,
+							_react2.default.createElement(
+								'option',
+								{ value: 'yes' },
+								'Yes'
+							),
+							_react2.default.createElement(
+								'option',
+								{ value: 'no' },
+								'No'
+							)
+						),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement(
+							'label',
+							null,
 							'Number of guests attending:'
 						),
 						_react2.default.createElement('input', { type: 'text', onChange: this.handleChangeNum }),
 						_react2.default.createElement('br', null),
 						_react2.default.createElement(
 							'button',
-							{ onClick: this.handleSubmit },
+							{ className: 'button-primary', onClick: this.handleSubmit },
 							'Submit'
+						),
+						_react2.default.createElement(
+							'button',
+							{ className: 'button' },
+							_react2.default.createElement(
+								'a',
+								{ href: 'https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113', target: '_blank' },
+								'View Registry'
+							)
 						)
 					)
 				);
@@ -174,7 +203,7 @@
 
 	;
 
-	(0, _reactDom.render)(_react2.default.createElement(Dashboard, null), document.getElementById('container'));
+	(0, _reactDom.render)(_react2.default.createElement(Dashboard, null), document.getElementById('app'));
 
 /***/ },
 /* 2 */
