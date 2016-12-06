@@ -1,5 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
+import Request from 'superagent'
+import { Router, Route, browserHistory, Link } from 'react-router';
 
 const submitRsvp = e => {
 	console.log(this.state);
@@ -19,7 +21,7 @@ class Dashboard extends React.Component {
 class RsvpForm extends React.Component{
 	constructor(props) {
 		super(props);
-		this.state = {name: "", num: ""};
+		this.state = {name: "", numberGuest: "", attending: "yes"};
 		this.handleChangeName = this.handleChangeName.bind(this);
 		this.handleChangeNum = this.handleChangeNum.bind(this);
 		this.handleChangeName = this.handleChangeName.bind(this);
@@ -31,13 +33,32 @@ class RsvpForm extends React.Component{
 	}
 
 	handleChangeNum(e) {
-		this.setState({num: e.target.value});
+		this.setState({numberGuest: e.target.value});
+	}
+
+	handleSelectChange(e){
+		this.setState({attending: e.target.value});
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		console.log("Name: " + this.state.name, "Num attending: " + this.state.num);
-		alert('Hey not so fast. Come back in a day or two cause Wes is not as fast as you are. He still has to finish writing a little bit of code before Wes and Avery can know if you are coming to their awesome wedding! If you are really bored or have more money than you know what to do with, here is a link to our registry. https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113')
+		if(this.state.name === 'admin'){
+			browserHistory.push('/rsvps');
+		}
+		else{
+			let newRsvp = {
+				name: this.state.name,
+				attending: this.state.attending,
+				numberGuest: this.state.numberGuest
+			};
+
+			let stingNewRsvp = JSON.stringify(newRsvp);
+
+			Request.post('/')
+	    .set('Content-Type', 'application/json')
+	    .send(stingNewRsvp)
+	    .end(console.log("end"))//TODO: Define callback
+		}
 	}
 
 	render() {
@@ -55,13 +76,64 @@ class RsvpForm extends React.Component{
 					<input type="text" onChange={this.handleChangeNum}/><br></br>
 					<button className="button-primary" onClick={this.handleSubmit}>Submit</button>
 					<button className="button"><a href="https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113" target="_blank">View Registry</a></button>
+
 				</form>
 			</div>
 		);
 	}
 };
 
+class Rsvps extends React.Component {
+	constructor(){
+		super();
+		this.state = {rsvps: []};
+		this.callback = this.callback.bind(this);
+	}
+	componentWillMount(){
+		Request.get('/rsvps')
+		.end(this.callback);
+	}
+	callback(err, res){
+		let response = JSON.parse(res.text);
+		var newState = {};
+		newState["rsvps"] = response;
+		if(res.status === 200){
+			this.setState(newState);
+			console.log("rsvps: ", this.state);
+		}
+	}
+	render() {
+		var rsvps = this.state.rsvps.map((rsvp) => {
+	      return <tr key={rsvp._id}>
+	        <td>{rsvp.name}</td>
+	        <td>{rsvp.attending}</td>
+	        <td>{rsvp.numberGuest}</td>
+	        <td>{rsvp.createDate}</td>
+	      </tr>
+	    });
+	    return <div>
+				<h1>RSVPS</h1>
+			<table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Attending?</th>
+            <th>Number Attending</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rsvps}
+        </tbody>
+      </table>
+		</div>
+	}
+};
+
 render(
-	<Dashboard />,
+	<Router history={ browserHistory }>
+	  <Route path="/" component={Dashboard}></Route>
+	  <Route path="/rsvps" component={Rsvps}></Route>
+  </Router>,
 	document.getElementById('app')
 );
