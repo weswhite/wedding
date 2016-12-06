@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Request from 'superagent'
 import { Router, Route, browserHistory, Link } from 'react-router';
+import toastr from 'toastr';
 
 const submitRsvp = e => {
 	console.log(this.state);
@@ -57,7 +58,13 @@ class RsvpForm extends React.Component{
 			Request.post('/')
 	    .set('Content-Type', 'application/json')
 	    .send(stingNewRsvp)
-	    .end(console.log("end"))//TODO: Define callback
+	    .end(function(err, res){
+				if(res.status === 201){
+					toastr.success('Success!');
+				}else{
+					toastr.error('Sorry about that!', 'Think you could try again?');
+				}
+			})
 		}
 	}
 
@@ -99,7 +106,6 @@ class Rsvps extends React.Component {
 		newState["rsvps"] = response;
 		if(res.status === 200){
 			this.setState(newState);
-			console.log("rsvps: ", this.state);
 		}
 	}
 	render() {
