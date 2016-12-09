@@ -103,6 +103,7 @@
 						null,
 						'The White Wedding'
 					),
+					_react2.default.createElement('hr', null),
 					_react2.default.createElement(RsvpForm, null)
 				);
 			}
@@ -160,8 +161,7 @@
 					var stingNewRsvp = JSON.stringify(newRsvp);
 
 					_superagent2.default.post('/').set('Content-Type', 'application/json').send(stingNewRsvp).end(function (err, res) {
-						if (res) {
-							console.log(res);
+						if (res.status === 201) {
 							_toastr2.default.success('Success!');
 						} else {
 							_toastr2.default.error('Sorry about that!', 'Think you could try again?');

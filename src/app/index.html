@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="photo">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" rel="stylesheet">
@@ -13,6 +13,34 @@
         <div id="app"></div>
       </div>
     </div>
+
+    <div id="preloader">
+    	<img src="../img/CN7I0546.jpg" width="1" height="1" />
+    	<img src="../img/avery+wes_engagements18.jpg" width="1" height="1" />
+    	<img src="../img/avery+wes_engagements38.jpg" width="1" height="1" />
+    	<img src="../img/avery+wes_engagements121.jpg" width="1" height="1" />
+    	<img src="../img/avery+wes_engagements168.jpg" width="1" height="1" />
+    	<img src="../img/avery+wes_engagements201.jpg" width="1" height="1" />
+    	<img src="../img/avery+wes_engagements205.jpg" width="1" height="1" />
+      <img src="../img/avery+wes_engagements271.jpg" width="1" height="1" />
+    </div>
+
     <script src="./bundle.js" ></script>
+    <script>
+      (function(){
+        document.getElementById("photo").className = 'photo1';
+        function run(interval, frames) {
+            var int = 2;
+            function func() {
+                //document.body.id = "b"+int;
+                document.getElementById("photo").className = 'photo'+int;
+                int++;
+                if(int === frames) { int = 1; }
+            }
+            var swap = window.setInterval(func, interval);
+        }
+        run(3000, 8);
+      }());
+    </script>
   </body>
 </html>

@@ -1,5 +1,53 @@
-html{
+html.photo6{
   background: url(../img/CN7I0546.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+html.photo7{
+  background: url(../img/avery+wes_engagements18.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+html.photo1{
+  background: url(../img/avery+wes_engagements38.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+html.photo4{
+  background: url(../img/avery+wes_engagements121.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+html.photo5{
+  background: url(../img/avery+wes_engagements168.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+html.photo3{
+  background: url(../img/avery+wes_engagements205.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+html.photo2{
+  background: url(../img/avery+wes_engagements271.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,7 +59,7 @@ html{
 	color: white;
   width: 100%;
   text-align: center;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 #content-area{
   display: table;
@@ -178,3 +226,21 @@ label > .label-body {
   display: inline;
   margin-left: .5rem;
   font-weight: normal; }
+
+@media screen {
+	div#preloader {
+		position: absolute;
+		left: -9999px;
+		top:  -9999px;
+	}
+	div#preloader img {
+		display: block;
+	}
+}
+@media print {
+	div#preloader,
+	div#preloader img {
+		visibility: hidden;
+		display: none;
+	}
+}
