@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div id='dashboard'>
-				<h1>The White Wedding</h1>
+				<h1 className="animated fadeInDownBig">The White Wedding</h1>
 				<RsvpForm />
 			</div>
 		);
@@ -71,7 +71,7 @@ class RsvpForm extends React.Component{
 
 	render() {
 		return (
-			<div id='rsvpForm'>
+			<div id='rsvpForm' className="animated fadeInUpBig">
 				<form>
 					<label>Name:</label>
 					<input type="text" value={this.state.name} onChange={this.handleChangeName}/><br></br>
