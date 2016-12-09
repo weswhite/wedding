@@ -103,7 +103,6 @@
 						null,
 						'The White Wedding'
 					),
-					_react2.default.createElement('hr', null),
 					_react2.default.createElement(RsvpForm, null)
 				);
 			}
@@ -125,7 +124,7 @@
 			_this2.state = { name: "", numberGuest: "", attending: "yes" };
 			_this2.handleChangeName = _this2.handleChangeName.bind(_this2);
 			_this2.handleChangeNum = _this2.handleChangeNum.bind(_this2);
-			_this2.handleChangeName = _this2.handleChangeName.bind(_this2);
+			_this2.handleSelectChange = _this2.handleSelectChange.bind(_this2);
 			_this2.handleSubmit = _this2.handleSubmit.bind(_this2);
 			return _this2;
 		}
@@ -158,9 +157,9 @@
 						numberGuest: this.state.numberGuest
 					};
 
-					var stingNewRsvp = JSON.stringify(newRsvp);
+					var stringNewRsvp = JSON.stringify(newRsvp);
 
-					_superagent2.default.post('/').set('Content-Type', 'application/json').send(stingNewRsvp).end(function (err, res) {
+					_superagent2.default.post('/').set('Content-Type', 'application/json').send(stringNewRsvp).end(function (err, res) {
 						if (res.status === 201) {
 							_toastr2.default.success('Success!');
 						} else {
@@ -168,6 +167,7 @@
 						}
 					});
 				}
+				this.setState({ name: "", numberGuest: "", attending: "yes" });
 			}
 		}, {
 			key: 'render',
@@ -183,7 +183,7 @@
 							null,
 							'Name:'
 						),
-						_react2.default.createElement('input', { type: 'text', onChange: this.handleChangeName }),
+						_react2.default.createElement('input', { type: 'text', value: this.state.name, onChange: this.handleChangeName }),
 						_react2.default.createElement('br', null),
 						_react2.default.createElement(
 							'label',
@@ -192,7 +192,7 @@
 						),
 						_react2.default.createElement(
 							'select',
-							null,
+							{ value: this.state.attending, onChange: this.handleSelectChange },
 							_react2.default.createElement(
 								'option',
 								{ value: 'yes' },
@@ -210,7 +210,7 @@
 							null,
 							'Number of guests attending:'
 						),
-						_react2.default.createElement('input', { type: 'text', onChange: this.handleChangeNum }),
+						_react2.default.createElement('input', { type: 'text', value: this.state.numberGuest, onChange: this.handleChangeNum }),
 						_react2.default.createElement('br', null),
 						_react2.default.createElement(
 							'button',

@@ -25,7 +25,7 @@ class RsvpForm extends React.Component{
 		this.state = {name: "", numberGuest: "", attending: "yes"};
 		this.handleChangeName = this.handleChangeName.bind(this);
 		this.handleChangeNum = this.handleChangeNum.bind(this);
-		this.handleChangeName = this.handleChangeName.bind(this);
+		this.handleSelectChange = this.handleSelectChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -53,11 +53,11 @@ class RsvpForm extends React.Component{
 				numberGuest: this.state.numberGuest
 			};
 
-			let stingNewRsvp = JSON.stringify(newRsvp);
+			let stringNewRsvp = JSON.stringify(newRsvp);
 
 			Request.post('/')
 	    .set('Content-Type', 'application/json')
-	    .send(stingNewRsvp)
+	    .send(stringNewRsvp)
 	    .end(function(err, res){
 				if(res.status === 201){
 					toastr.success('Success!');
@@ -66,6 +66,7 @@ class RsvpForm extends React.Component{
 				}
 			})
 		}
+		this.setState({name: "", numberGuest: "", attending: "yes"});
 	}
 
 	render() {
@@ -73,17 +74,16 @@ class RsvpForm extends React.Component{
 			<div id='rsvpForm'>
 				<form>
 					<label>Name:</label>
-					<input type="text" onChange={this.handleChangeName}/><br></br>
+					<input type="text" value={this.state.name} onChange={this.handleChangeName}/><br></br>
 					<label>Will you be able to attend?</label>
-					<select>
+					<select value={this.state.attending} onChange={this.handleSelectChange}>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
 					</select><br></br>
 					<label>Number of guests attending:</label>
-					<input type="text" onChange={this.handleChangeNum}/><br></br>
+					<input type="text" value={this.state.numberGuest} onChange={this.handleChangeNum}/><br></br>
 					<button className="button-primary" onClick={this.handleSubmit}>Submit</button>
 					<button className="button"><a href="https://registry.theknot.com/avery-edwards-wes-white-february-2017-tx/16385113" target="_blank">View Registry</a></button>
-
 				</form>
 			</div>
 		);
