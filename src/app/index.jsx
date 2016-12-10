@@ -75,7 +75,7 @@ class RsvpForm extends React.Component{
 				<form>
 					<label>Name:</label>
 					<input type="text" value={this.state.name} onChange={this.handleChangeName}/><br></br>
-					<label>Will you be able to attend?</label>
+					<label>Will you be able to attend Feburary 4th at 4 PM?</label>
 					<select value={this.state.attending} onChange={this.handleSelectChange}>
 						<option value="yes">Yes</option>
 						<option value="no">No</option>
