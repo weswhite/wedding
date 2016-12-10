@@ -100,7 +100,7 @@
 					{ id: 'dashboard' },
 					_react2.default.createElement(
 						'h1',
-						null,
+						{ className: 'animated fadeInDownBig' },
 						'The White Wedding'
 					),
 					_react2.default.createElement(RsvpForm, null)
@@ -174,7 +174,7 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ id: 'rsvpForm' },
+					{ id: 'rsvpForm', className: 'animated fadeInUpBig' },
 					_react2.default.createElement(
 						'form',
 						null,
@@ -188,7 +188,7 @@
 						_react2.default.createElement(
 							'label',
 							null,
-							'Will you be able to attend?'
+							'Will you be able to attend Feburary 4th at 4 PM?'
 						),
 						_react2.default.createElement(
 							'select',
